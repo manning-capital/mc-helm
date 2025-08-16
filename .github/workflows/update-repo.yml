@@ -3,8 +3,6 @@ name: Update Helm Repository
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'charts/**'
   workflow_dispatch:
 
 # Set permissions for the workflow
