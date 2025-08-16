@@ -1,0 +1,56 @@
+# Example values for deploy-prefect chart
+# Copy this file and modify as needed for your environment
+
+image:
+  repository: ghcr.io/your-org/your-image
+  tag: latest
+  pullPolicy: Always
+
+config:
+  prefectApiUrl: https://prefect.example.com/api
+
+# Environment variables to pass to the container
+env:
+  # GitHub configuration
+  GITHUB_TOKEN: ""
+  GITHUB_BRANCH: main
+  
+  # Prefect configuration
+  PREFECT_GITHUB_CREDENTIALS: ""
+  
+  # Database configuration
+  POSTGRES_URL: ""
+  
+  # Application configuration
+  PYTHONUNBUFFERED: "1"
+  PYTHONPATH: "/app"
+  LOG_LEVEL: "INFO"
+  ENVIRONMENT: "production"
+  DEBUG: "false"
+
+resources:
+  requests:
+    memory: "128Mi"
+    cpu: "100m"
+  limits:
+    memory: "256Mi"
+    cpu: "200m"
+
+job:
+  parallelism: 1
+  completions: 1
+  activeDeadlineSeconds: 1800  # 30 minutes
+  ttlSecondsAfterFinished: 300  # 5 minutes
+  backoffLimit: 3
+
+# Security context configuration
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  runAsGroup: 1000
+  fsGroup: 1000
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: false
+  capabilities:
+    drop:
+      - ALL

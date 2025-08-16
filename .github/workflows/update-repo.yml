@@ -1,0 +1,57 @@
+name: Update Helm Repository
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'charts/**'
+  workflow_dispatch:
+
+jobs:
+  update-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: v3.12.0
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install PyYAML
+
+      - name: Package charts
+        run: |
+          # Package each chart
+          for chart in charts/*/; do
+            if [ -f "$chart/Chart.yaml" ]; then
+              echo "Packaging $chart"
+              helm package "$chart" --destination charts/
+            fi
+          done
+
+      - name: Update repository index
+        run: |
+          # Generate the index
+          helm repo index charts/ --url https://raw.githubusercontent.com/${{ github.repository }}/main/charts/
+          
+          # Move index to root
+          mv charts/index.yaml ./index.yaml
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add index.yaml charts/*.tgz
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update Helm repository index and packages"
+          git push
