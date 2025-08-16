@@ -2,7 +2,7 @@
 # Copy this file and modify as needed for your environment
 
 image:
-  repository: ghcr.io/your-org/your-image
+  repository: ghcr.io/manning-capital/your-image
   tag: latest
   pullPolicy: Always
 

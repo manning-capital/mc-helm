@@ -39,7 +39,7 @@ The chart is automatically deployed in the GitHub workflow with all necessary va
    ```bash
    cd charts/deploy-prefect
    helm install deploy-prefect . \
-     --set image.repository=ghcr.io/your-org/your-image \
+     --set image.repository=ghcr.io/manning-capital/your-image \
      --set image.tag=v1.0.0 \
      --set config.prefectApiUrl=https://prefect.example.com/api \
      --set env.GITHUB_TOKEN=your-token \
@@ -88,7 +88,7 @@ Create a custom `values.yaml` file:
 
 ```yaml
 image:
-  repository: ghcr.io/your-org/custom-image
+  repository: ghcr.io/manning-capital/custom-image
   tag: v2.0.0
 
 config:

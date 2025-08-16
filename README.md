@@ -7,7 +7,7 @@ This repository contains all custom Helm charts for Manning Capital's Kubernetes
 ### Add the Repository
 
 ```bash
-helm repo add mc-helm https://raw.githubusercontent.com/your-org/mc-helm/main/charts/
+helm repo add mc-helm https://raw.githubusercontent.com/manning-capital/mc-helm/main/charts/
 helm repo update
 ```
 
@@ -16,7 +16,7 @@ helm repo update
 ```bash
 # Install deploy-prefect chart
 helm install deploy-prefect mc-helm/deploy-prefect \
-  --set image.repository=ghcr.io/your-org/your-image \
+  --set image.repository=ghcr.io/manning-capital/your-image \
   --set image.tag=latest
 ```
 
@@ -36,7 +36,7 @@ A Helm chart for deploying Prefect flows using Kubernetes Jobs. This chart creat
 **Install:**
 ```bash
 helm install deploy-prefect mc-helm/deploy-prefect \
-  --set image.repository=ghcr.io/your-org/your-image \
+  --set image.repository=ghcr.io/manning-capital/your-image \
   --set image.tag=latest
 ```
 
@@ -59,7 +59,7 @@ To manually update the repository:
 
 # Or manually package and index
 helm package charts/deploy-prefect/ --destination charts/
-helm repo index charts/ --url https://raw.githubusercontent.com/your-org/mc-helm/main/charts/
+helm repo index charts/ --url https://raw.githubusercontent.com/manning-capital/mc-helm/main/charts/
 ```
 
 ## 📁 Repository Structure
@@ -128,7 +128,7 @@ helm install test-release charts/chart-name/ --dry-run
 # Create a values file
 cat > my-values.yaml << EOF
 image:
-  repository: ghcr.io/my-org/my-image
+  repository: ghcr.io/manning-capital/my-image
   tag: v1.2.3
 config:
   prefectApiUrl: https://my-prefect.example.com/api

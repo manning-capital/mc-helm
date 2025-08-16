@@ -4,15 +4,15 @@ description: A Helm chart for deploying Prefect flows using Kubernetes Jobs
 type: application
 version: 0.1.0
 appVersion: "1.0.0"
-icon: https://raw.githubusercontent.com/PrefectHQ/prefect/main/docs/img/logo.png
+icon: https://raw.githubusercontent.com/manning-capital/mc-helm/main/icon.jpeg
 keywords:
   - prefect
   - kubernetes
   - job
   - deployment
-home: https://github.com/your-org/mc-helm
+home: https://github.com/manning-capital/mc-helm
 sources:
-  - https://github.com/your-org/mc-helm
+  - https://github.com/manning-capital/mc-helm
 maintainers:
   - name: Manning Capital DevOps
     email: devops@manningcapital.com
