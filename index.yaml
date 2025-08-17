@@ -3,9 +3,9 @@ entries:
   deploy-prefect:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-08-17T12:11:50.648493625Z"
+    created: "2025-08-17T12:13:34.042151762Z"
     description: A Helm chart for deploying Prefect flows using Kubernetes Jobs
-    digest: 1e4b7170b105d11dfe00f100b3b7adde00cb77173502c7a51f1142dd042a0ae4
+    digest: aaca5f9fedee0eb7b2be77652273d4f13ff5635f89f4db4159200bfaba15a209
     home: https://github.com/manning-capital/mc-helm
     icon: https://raw.githubusercontent.com/manning-capital/mc-helm/main/icon.jpeg
     keywords:
@@ -23,4 +23,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/manning-capital/mc-helm/main/charts/deploy-prefect-0.1.0.tgz
     version: 0.1.0
-generated: "2025-08-17T12:11:50.648009479Z"
+generated: "2025-08-17T12:13:34.041672973Z"
