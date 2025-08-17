@@ -7,7 +7,7 @@ This repository contains all custom Helm charts for Manning Capital's Kubernetes
 ### Add the Repository
 
 ```bash
-helm repo add mc-helm https://raw.githubusercontent.com/manning-capital/mc-helm/main/charts/
+helm repo add mc-helm https://raw.githubusercontent.com/manning-capital/mc-helm/main/
 helm repo update
 ```
 
@@ -59,7 +59,7 @@ To manually update the repository:
 
 # Or manually package and index
 helm package charts/deploy-prefect/ --destination charts/
-helm repo index charts/ --url https://raw.githubusercontent.com/manning-capital/mc-helm/main/charts/
+helm repo index charts/ --url https://raw.githubusercontent.com/manning-capital/mc-helm/main/
 ```
 
 ## 📁 Repository Structure
