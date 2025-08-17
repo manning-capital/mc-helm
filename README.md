@@ -2,7 +2,7 @@
 
 This repository contains all custom Helm charts for Manning Capital's Kubernetes deployments.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Add the Repository
 
@@ -20,7 +20,7 @@ helm install deploy-prefect mc-helm/deploy-prefect \
   --set image.tag=latest
 ```
 
-## 📦 Charts
+## Charts
 
 ### [deploy-prefect](./charts/deploy-prefect/)
 
@@ -32,6 +32,7 @@ A Helm chart for deploying Prefect flows using Kubernetes Jobs. This chart creat
 - Security-focused with non-root execution
 - Environment variable management
 - Automatic cleanup of completed jobs
+- **Python-based deployment logic** for better maintainability and error handling
 
 **Install:**
 ```bash
@@ -40,7 +41,7 @@ helm install deploy-prefect mc-helm/deploy-prefect \
   --set image.tag=latest
 ```
 
-## 🔧 Repository Management
+## Repository Management
 
 ### Automatic Updates (GitHub Actions)
 
@@ -62,7 +63,7 @@ helm package charts/deploy-prefect/ --destination charts/
 helm repo index charts/ --url https://raw.githubusercontent.com/manning-capital/mc-helm/main/
 ```
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 mc-helm/
@@ -72,6 +73,7 @@ mc-helm/
 │   │   ├── values.yaml       # Default values
 │   │   ├── values-example.yaml # Example configuration
 │   │   ├── templates/        # Kubernetes manifests
+│   │   ├── scripts/          # Python deployment scripts
 │   │   └── README.md         # Chart documentation
 │   └── *.tgz                 # Packaged charts (auto-generated)
 ├── scripts/                   # Utility scripts
@@ -83,7 +85,7 @@ mc-helm/
 └── README.md                  # This file
 ```
 
-## 🛠️ Development
+## Development
 
 ### Prerequisites
 
@@ -120,7 +122,7 @@ helm install test-release charts/chart-name/ --dry-run
 3. Test the changes
 4. Commit and push - the repository will auto-update
 
-## 📚 Usage Examples
+## Usage Examples
 
 ### Install with Custom Values
 
@@ -154,7 +156,7 @@ helm upgrade deploy-prefect mc-helm/deploy-prefect \
 helm uninstall deploy-prefect
 ```
 
-## 🔒 Security
+## Security
 
 All charts follow security best practices:
 - Non-root execution
@@ -162,6 +164,6 @@ All charts follow security best practices:
 - Privilege escalation prevention
 - Configurable security contexts
 
-## 📄 License
+## License
 
 This project is licensed under the terms specified in the [LICENSE](LICENSE) file.
